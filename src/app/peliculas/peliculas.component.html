@@ -1,17 +1,18 @@
 <h2>Mis Peliculas</h2>
-<div class="Peliculas" style="display: flex;">
-    <div *ngFor="let pelicula of peliculas" 
-    [class.selected]="pelicula === peliculaSeleccionada"
-    (click)="onSelect(pelicula)"
-    style="width: 33%;">
-        <img src="{{pelicula.imagen}}" alt="imagen de {{pelicula.nombre}}" style="width: 100%;">
-
+    <ul class="peliculas">
+        <li *ngFor="let pelicula of peliculas" 
+        [class.selected]="pelicula === peliculaSeleccionada"
+        (click)="onSelect(pelicula)">{{pelicula.nombre}}</li>
+    </ul>
+<div *ngIf="peliculaSeleccionada" class="detalles">
+    <div class="detallesContenido">
+        <h2>Detalles de {{peliculaSeleccionada.nombre}}</h2>
+        <h4>Nombre:</h4>
+        <p>{{peliculaSeleccionada.nombre}}</p>
+        <h4>Sinopsis:</h4>
+        <p>{{peliculaSeleccionada.sinopsi}}</p>
     </div>
-</div>
-<div *ngIf="peliculaSeleccionada">
-    <h2>Detalles de {{peliculaSeleccionada.nombre}}</h2>
-    <h6>Nombre:</h6>
-    <p>{{peliculaSeleccionada.nombre}}</p>
-    <h6>Sinopsis:</h6>
-    <p>{{peliculaSeleccionada.sinopsi}}</p>
+    <div class="detallesImagen">
+        <img src={{peliculaSeleccionada.imagen}} alt="Imagen de la portada de {{peliculaSeleccionada.nombre}}">
+    </div>
 </div>
