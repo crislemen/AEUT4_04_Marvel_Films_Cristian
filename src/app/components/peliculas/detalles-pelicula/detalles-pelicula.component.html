@@ -1,0 +1,12 @@
+    <div class="card" *ngIf="pelicula" style="width: 100%;">
+        <div class="card-body col-6">
+          <h5 class="card-title">Nombre</h5>
+          <p class="card-text">{{pelicula.nombre}}</p>
+          <h5 class="card-tittle">Sinopsis</h5>
+          <p class="card-text">{{pelicula.sinopsi}}</p>
+          
+          <button class="btn btn-success">Editar</button>
+          <button class="btn btn-danger">Eliminar</button>
+        </div>
+        <img src="{{pelicula.imagen}}" class="col-6" alt="Imagen de la portada de {{pelicula.nombre}}" style="width: 30%;">
+      </div>

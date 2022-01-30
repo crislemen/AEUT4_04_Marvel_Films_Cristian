@@ -1,0 +1,30 @@
+<h2>Mis Peliculas</h2>
+<div class="list-group peliculas">
+    <li class="list-group-item" *ngFor="let pelicula of peliculas" 
+    [class.selected]="pelicula === peliculaSeleccionada"
+    (click)="onSelect(pelicula)">
+    {{pelicula.nombre}}</li>
+
+    <!--
+ <ul class="peliculas">
+        <li *ngFor="let pelicula of peliculas" 
+        [class.selected]="pelicula === peliculaSeleccionada"
+        (click)="onSelect(pelicula)">{{pelicula.nombre}}</li>
+    </ul>
+    -->
+   
+    <app-detalles-pelicula [pelicula]="peliculaSeleccionada"></app-detalles-pelicula>
+<div *ngIf="!peliculaSeleccionada" class="crearPelicula">
+    <div class="detallesContenido">
+        <h2>Añade una nueva Pelicula</h2>
+        <h4>Nombre:</h4>
+        <input type="text"placeholder="Nombre">
+        <h4>Sinopsis:</h4>
+        <textarea name="sinopsi" id="sinopsi" cols="50" rows="20"></textarea>
+    </div>
+    <div class="detallesImagen">
+        <h3>Link de la imagen</h3>
+        <input type="text">
+    </div>
+    <div class="botones"><button class="btn btn-primary">Añadir</button></div>
+</div>
