@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Pelicula} from "../../modules/pelicula";
-import {PELICULAS} from "../../modules/mock-peliculas";
+import { peliculasArray } from 'src/app/modules/mock-pelicula';
 
 @Component({
   selector: 'app-peliculas',
@@ -8,8 +8,16 @@ import {PELICULAS} from "../../modules/mock-peliculas";
   styleUrls: ['./peliculas.component.css']
 })
 export class PeliculasComponent implements OnInit {
+  peliculasArray = peliculasArray;
   peliculaSeleccionada?: Pelicula;
-  peliculas=PELICULAS;
+  peliculaEditada:Pelicula = new Pelicula();
+  //Funcion para añadir una nueva pelicula
+  addPelicula(){
+    this.peliculaEditada.id=this.peliculasArray.length + 1;
+    this.peliculasArray.push(this.peliculaEditada);
+    this.peliculaEditada = new Pelicula();
+  }
+
   constructor() { }
 
   ngOnInit(): void {

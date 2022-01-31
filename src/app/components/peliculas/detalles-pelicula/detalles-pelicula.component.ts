@@ -11,5 +11,8 @@ export class DetallesPeliculaComponent implements OnInit {
   @Input() pelicula? : Pelicula;
   ngOnInit(): void {
   }
+  editarPelicula(pelicula:Pelicula){
+    this.pelicula = pelicula;
+  }
 
 }
