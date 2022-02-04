@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AEUT4_04_Marvel_Films_Cristian';
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && 
+      outlet.activatedRouteData && 
+      outlet.activatedRouteData['animationState'];
+   }
 }

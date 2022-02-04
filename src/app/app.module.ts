@@ -7,6 +7,9 @@ import { PeliculasComponent } from './components/peliculas/peliculas.component';
 import { DetallesPeliculaComponent } from './components/peliculas/detalles-pelicula/detalles-pelicula.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MarvelComponent } from './components/marvel/marvel.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,9 @@ import { MarvelComponent } from './components/marvel/marvel.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

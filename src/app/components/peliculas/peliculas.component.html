@@ -21,34 +21,22 @@
   </nav>
 <h2>Mis Peliculas</h2>
 <div class="row">
-    <div class="col-6">
+    <div class="col-12">
         <div class="row">
-            <div class="pelicula col-5 col-md-4"  *ngFor="let pelicula of listaPeliculas" 
+            <div class="pelicula col-5 col-md-3"  *ngFor="let pelicula of listaPeliculas" 
             [class.selected]="pelicula === peliculaSeleccionada"
-            [routerLink]="['/','post','1']"
             (click)="onSelect(pelicula)">
-                <img class="img-fluid" src="{{pelicula.poster}}" alt="">
+            <mat-card class="pelicula-card">
+              <img mat-card-image src="{{pelicula.poster}}" alt="Foto de la portada de {{pelicula.name}}">
+              <mat-card-actions>
+                <button mat-raised-button color="warn" [routerLink]="['/','post',pelicula.id]">Saber mas</button>
+              </mat-card-actions>
+            </mat-card>
             </div>
         </div>
         
     </div>
-    <div class="col-6">
-        <div class="crearPelicula">
-            <div class="detallesContenido">
-                <form action="">
-                    <h2>Añade una nueva Pelicula</h2>
-                    <h4>Nombre:</h4>
-                    <input type="text" placeholder="Nombre"[class.selected]="peliculaEditada.name">
-                    <h4>Sinopsis:</h4>
-                    <textarea name="sinopsi" id="sinopsi" cols="50" rows="20"[class.selected]="peliculaEditada.sinopsi"></textarea>
-                    <h3>Link de la imagen</h3>
-                    <input type="text"[class.selected]="peliculaEditada.poster">
-                    <button class="btn btn-primary">Añadir</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 <!--Metodo if en el que si no hay ninguna pelicula elegida salga un apartado para poder crear una nueva pelicula-->
 <footer class="bg-dark text-center text-lg-start">

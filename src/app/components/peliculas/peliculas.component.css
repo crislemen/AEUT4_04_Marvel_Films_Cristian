@@ -1,3 +1,6 @@
 .crearPelicula{
     display: flex;
 }
+.pelicula-card{
+    background-color: lightgray
+}
