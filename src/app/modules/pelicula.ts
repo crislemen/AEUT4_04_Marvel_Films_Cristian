@@ -1,6 +1,6 @@
 export class Pelicula{
     id!: number;
-    nombre!:string;
-    imagen!:string;
+    name!:string;
+    poster!:string;
     sinopsi!:string;
 }

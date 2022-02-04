@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {Pelicula} from "../../modules/pelicula";
-import { peliculasArray } from 'src/app/modules/mock-pelicula';
+import { RestService } from 'src/app/services/rest.service';
 
 @Component({
   selector: 'app-peliculas',
@@ -8,21 +8,22 @@ import { peliculasArray } from 'src/app/modules/mock-pelicula';
   styleUrls: ['./peliculas.component.css']
 })
 export class PeliculasComponent implements OnInit {
-  peliculasArray = peliculasArray;
   peliculaSeleccionada?: Pelicula;
+  public listaPeliculas:any =[];
   peliculaEditada:Pelicula = new Pelicula();
-  //Funcion para añadir una nueva pelicula
-  addPelicula(){
-    this.peliculaEditada.id=this.peliculasArray.length + 1;
-    this.peliculasArray.push(this.peliculaEditada);
-    this.peliculaEditada = new Pelicula();
-  }
 
-  constructor() { }
-
+  constructor(private RestService:RestService) { }
   ngOnInit(): void {
+    this.cargarDatos();
   }
   onSelect(pelicula:Pelicula):void{
     this.peliculaSeleccionada = pelicula;
+  }
+  public cargarDatos(){
+    this.RestService.get('https://www.qando.es/docs/films.php')
+    .subscribe((respuesta:any) =>{
+      this.listaPeliculas = respuesta;
+      console.log(this.listaPeliculas);
+    })
   }
 }

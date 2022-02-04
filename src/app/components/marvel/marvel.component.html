@@ -19,37 +19,9 @@
       </div>
     </div>
   </nav>
-<h2>Mis Peliculas</h2>
-<div class="row">
-    <div class="col-6">
-        <div class="row">
-            <div class="pelicula col-5 col-md-4"  *ngFor="let pelicula of listaPeliculas" 
-            [class.selected]="pelicula === peliculaSeleccionada"
-            [routerLink]="['/','post','1']"
-            (click)="onSelect(pelicula)">
-                <img class="img-fluid" src="{{pelicula.poster}}" alt="">
-            </div>
-        </div>
-        
-    </div>
-    <div class="col-6">
-        <div class="crearPelicula">
-            <div class="detallesContenido">
-                <form action="">
-                    <h2>Añade una nueva Pelicula</h2>
-                    <h4>Nombre:</h4>
-                    <input type="text" placeholder="Nombre"[class.selected]="peliculaEditada.name">
-                    <h4>Sinopsis:</h4>
-                    <textarea name="sinopsi" id="sinopsi" cols="50" rows="20"[class.selected]="peliculaEditada.sinopsi"></textarea>
-                    <h3>Link de la imagen</h3>
-                    <input type="text"[class.selected]="peliculaEditada.poster">
-                    <button class="btn btn-primary">Añadir</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
+  <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fgetwallpapers.com%2Fwallpaper%2Ffull%2F4%2F2%2F4%2F64674.jpg&f=1&nofb=1" class="img-fluid" alt="">
+  <h2>¿Que es Marvel?</h2>
+  <p>Marvel Worldwide, Inc., conocida como Marvel Comics, es una editorial de historietas estadounidense creada en 1939, inicialmente con el nombre de Timely Publications. Entre sus personajes emblemáticos del género superheroico se encuentran Spider-Man, Wolverine, X-Men, Capitán América, Iron Man, Hulk, Thor, Los 4 Fantásticos, Daredevil, Punisher, Los vengadores, entre otros. A partir de los años 1990, la compañía se posicionó como una de las principales editoriales de cómics del país. El 31 de agosto de 2009, The Walt Disney Company compró Marvel Entertainment por cerca de 4 000 millones de dólares, fusionándose con esta el 1 de enero de 2010.1</p>
 <!--Metodo if en el que si no hay ninguna pelicula elegida salga un apartado para poder crear una nueva pelicula-->
 <footer class="bg-dark text-center text-lg-start">
     <!-- Copyright -->
